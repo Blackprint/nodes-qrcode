@@ -11,8 +11,8 @@ module.exports = {
 	// hardlinkTo: "./dist",
 
 	// Unique prefix for .html or .sf template
-	// Please use format 'BPIC/LibraryName'
-	templatePrefix: "BPIC/LibraryName",
+	// Please use format 'BPIC/QRCode'
+	templatePrefix: "BPIC/QRCode",
 
 	// Optional: Add header to every combined file
 	header: "/* Your Nodes \n MIT Licensed */",
@@ -22,7 +22,7 @@ module.exports = {
 	// Maybe you want to write Node.js compatible node on ".js"
 	// and browser compatible node on ".sf" file extension
 	js:{
-		file:'@cwd/dist/nodes-rename-me.mjs', // @cwd = directory where you start the Node.js
+		file:'@cwd/dist/nodes-qrcode.mjs', // @cwd = directory where you start the Node.js
 		wrapped: 'async-mjs', // Wrap the entire .js to .mjs
 
 		combine:[ // Relative to this config's directory
@@ -35,7 +35,7 @@ module.exports = {
 	// This extension can contain html, scss, and js
 	// But only use this if you only develop for browser API
 	sf:{
-		file:'@cwd/dist/nodes-rename-me.sf', // will have sf.css and sf.mjs
+		file:'@cwd/dist/nodes-qrcode.sf', // will have sf.css and sf.mjs
 
 		// Use `async-mjs` if we want to use `await imports.task()` to avoid waiting this module
 		wrapped: 'async-mjs', // Wrap the entire .js in async IIFE to .mjs file
