@@ -1,0 +1,59 @@
+## html
+<div class="node" style="transform: translate({{ x }}px, {{ y }}px)">
+  <sf-template path="Blackprint/nodes/template/header.sf"></sf-template>
+
+  <div class="content">
+  	<div class="qrcode">
+  		<sf-slot for="_element"></sf-slot>
+	</div>
+
+    <div class="left-port">
+      <sf-template path="Blackprint/nodes/template/input-port.sf"></sf-template>
+    </div>
+
+    <div class="right-port">
+      <sf-template path="Blackprint/nodes/template/output-port.sf"></sf-template>
+    </div>
+  </div>
+
+  <sf-template path="Blackprint/nodes/template/other.sf"></sf-template>
+</div>
+
+## scss-global
+bpic-qrcode-convert-toelement { // Element name based on file path
+	.qrcode > div {
+		display: block;
+		padding: 10px;
+		background: white;
+		width: 256px;
+		height: 256px;
+	}
+}
+
+## js-global
+Blackprint.Sketch.registerInterface('BPIC/QRCode/Convert/ToElement',
+class extends Context.IFace.ToElement {
+	constructor(node){
+		super(node);
+		this._element = null;
+	}
+
+	init(){
+		let { Output, IOutput } = this.ref;
+		let changeBg = ()=>{
+			let bgColor = Output.Element.querySelector('rect').attributes.fill.value;
+			this.$el('.qrcode > div').css('background', bgColor);
+		};
+
+		IOutput.DivElement.on('disconnect', Context.EventSlot, ()=>{
+			setTimeout(() => {
+				if(IOutput.DivElement.cables.length === 0){
+					this.$el('.qrcode').prepend(Output.DivElement);
+					changeBg();
+				}
+			}, 500);
+		});
+
+		IOutput.Element.on('value', Context.EventSlot, changeBg);
+	}
+});
