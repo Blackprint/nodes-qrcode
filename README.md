@@ -1,8 +1,8 @@
 [![NPM](https://img.shields.io/npm/v/@blackprint/nodes-qrcode.svg)](https://www.npmjs.com/package/@blackprint/nodes-qrcode)
-[![Build Status](https://github.com/blackprint/template-js/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/blackprint/template-js/actions/workflows/build.yml)
+[![Build Status](https://github.com/Blackprint/nodes-qrcode/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/blackprint/template-js/actions/workflows/build.yml)
 
-## Your project name
-Description here
+## QR Code for Blackprint
+Blackprint nodes for creating QR Code
 
 ## Import this nodes from URL
 Please specify the version to avoid breaking changes.
@@ -27,7 +27,7 @@ Please append `/url-here?random-number` if your browser still using the cached f
 ## Local module server for development
 ```sh
 $ cd /your/project/folder
-$ git clone --depth 1 --recurse-submodules https://github.com/blackprint/nodes-qrcode.git .
+$ git clone --depth 1 --recursive https://github.com/Blackprint/nodes-qrcode.git .
 $ pnpm i
 $ npm start
  >> [Browsersync] Access URLs:
