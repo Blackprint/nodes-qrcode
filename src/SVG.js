@@ -39,6 +39,6 @@ class InstanceNode extends Blackprint.Node {
 		if(this._qrcode == null) return;
 
 		let { Input, Output } = this.ref;
-		Output.SVGText = this._qrcode.makeSVG(Input.Data);
+		Output.SVGText = this._qrcode.makeSVG(Input.Data ?? '');
 	}
 });
