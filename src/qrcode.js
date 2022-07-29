@@ -682,7 +682,7 @@ function _getTypeNumber(text, nCorrectLevel) {
 	var nType = 1;
 	var length = _getUTF8Length(text);
 
-	for (var i = 0, len = QRCodeLimitLength.length; i <= len; i++) {
+	for (var i = 0, len = QRCodeLimitLength.length; i < len; i++) {
 		if(nCorrectLevel === QRErrorCorrectLevel.L)
 			if(length <= QRCodeLimitLength[i][0]) break;
 		if(nCorrectLevel === QRErrorCorrectLevel.M)

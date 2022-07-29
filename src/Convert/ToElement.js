@@ -1,8 +1,18 @@
+/** 
+ * This node can be used to convert SVGText into HTML Element
+ * @blackprint node
+ */
 Blackprint.registerNode("QRCode/Convert/ToElement",
 class extends Blackprint.Node {
-	static input = { String };
+	static input = {
+		/** Output from SVGText port */
+		String,
+	};
 	static output = {
+		/** SVG Element */
 		Element: window.SVGElement,
+
+		/** SVG Element inside of a div container */
 		DivElement: window.HTMLDivElement,
 	};
 
