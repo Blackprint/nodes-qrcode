@@ -14,6 +14,10 @@ class InstanceNode extends Blackprint.Node {
 		/**
 		 * QRCode's correction level (H, M, L)
 		 * Default to High correction level (H)
+		 * @menu
+		 * - H = High (high correction level)
+		 * - M = Medium (medium correction level)
+		 * - L = Low (low correction level)
 		 */
 		CorrectLevel: Blackprint.Port.Default(String, 'H'),
 	};
@@ -38,10 +42,11 @@ class InstanceNode extends Blackprint.Node {
 				height: '100%',
 				colorDark: Input.DotColor,
 				colorLight: Input.BgColor,
-				correctLevel: Input.CorrectLevel,
+				correctLevel: Input.CorrectLevel || 'H',
 			});
 
 			this.update();
+			this.routes.routeOut();
 		};
 
 		optionChange();
